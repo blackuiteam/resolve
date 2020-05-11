@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/resolve/static/css/main.b548203e.chunk.css",
-    "main.js": "/resolve/static/js/main.edfea020.chunk.js",
-    "main.js.map": "/resolve/static/js/main.edfea020.chunk.js.map",
+    "main.css": "/resolve/static/css/main.96e2fe9e.chunk.css",
+    "main.js": "/resolve/static/js/main.6a869dab.chunk.js",
+    "main.js.map": "/resolve/static/js/main.6a869dab.chunk.js.map",
     "runtime-main.js": "/resolve/static/js/runtime-main.b9b3cddd.js",
     "runtime-main.js.map": "/resolve/static/js/runtime-main.b9b3cddd.js.map",
     "static/js/2.801e0ff2.chunk.js": "/resolve/static/js/2.801e0ff2.chunk.js",
     "static/js/2.801e0ff2.chunk.js.map": "/resolve/static/js/2.801e0ff2.chunk.js.map",
     "index.html": "/resolve/index.html",
-    "precache-manifest.c0dfa9cbe2bef8b53d89f422858fadc8.js": "/resolve/precache-manifest.c0dfa9cbe2bef8b53d89f422858fadc8.js",
+    "precache-manifest.9d2ffbd28979e6753104fca572b06990.js": "/resolve/precache-manifest.9d2ffbd28979e6753104fca572b06990.js",
     "service-worker.js": "/resolve/service-worker.js",
-    "static/css/main.b548203e.chunk.css.map": "/resolve/static/css/main.b548203e.chunk.css.map",
+    "static/css/main.96e2fe9e.chunk.css.map": "/resolve/static/css/main.96e2fe9e.chunk.css.map",
     "static/js/2.801e0ff2.chunk.js.LICENSE.txt": "/resolve/static/js/2.801e0ff2.chunk.js.LICENSE.txt",
     "static/media/attributes.png": "/resolve/static/media/attributes.f089da84.png",
     "static/media/audio-tab.png": "/resolve/static/media/audio-tab.fbcc1576.png",
     "static/media/audio-transition.png": "/resolve/static/media/audio-transition.da573640.png",
-    "static/media/main.css": "/resolve/static/media/viewer_image.d1038565.png",
+    "static/media/main.css": "/resolve/static/media/viewer_image.8dc1da21.png",
     "static/media/background.png": "/resolve/static/media/background.76688b97.png",
     "static/media/bmd-camera-raw-02.png": "/resolve/static/media/bmd-camera-raw-02.d9e33a3b.png",
     "static/media/bmd-camera-raw-03.png": "/resolve/static/media/bmd-camera-raw-03.6cd5cf7a.png",
@@ -54,13 +54,13 @@
     "static/media/transform.png": "/resolve/static/media/transform.9f8ff2fe.png",
     "static/media/video-composite.png": "/resolve/static/media/video-composite.25d6f468.png",
     "static/media/video-transition.png": "/resolve/static/media/video-transition.59ab1656.png",
-    "static/media/wedding.mp4": "/resolve/static/media/wedding.aa116701.mp4",
+    "static/media/wedding.mp4": "/resolve/static/media/wedding.3c9a6bd4.mp4",
     "static/media/white-balance.png": "/resolve/static/media/white-balance.cb038f73.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b9b3cddd.js",
     "static/js/2.801e0ff2.chunk.js",
-    "static/css/main.b548203e.chunk.css",
-    "static/js/main.edfea020.chunk.js"
+    "static/css/main.96e2fe9e.chunk.css",
+    "static/js/main.6a869dab.chunk.js"
   ]
 }
