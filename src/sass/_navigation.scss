@@ -1,0 +1,50 @@
+
+// ==> NAVIGATION
+
+$nav: (
+	'media',
+	'speed_edit',
+	'edit',
+	'audio',
+	'color',
+	'effects',
+	'deliver'
+);
+
+.navigation {
+	@include size(100%, 30px, flex);
+	@include position(null, null, 1px, 0px);
+	justify-content: center;
+	background-color: #17181A;
+	border-top: 1px solid #000;
+
+	a {
+		@include size(113px, 30px, block);
+
+		@each $icons in $nav {
+			&.#{$icons} {
+				@include bg('../images/navigation/#{$icons}@2x.png', no-repeat, center, 26px 26px);
+				text-indent: -10000px;
+				float: left;
+				text-decoration: none;
+
+				&.active, &:hover  {
+					background-image: url('../images/navigation/#{$icons}_active@2x.png');
+				}
+			}
+		}
+
+		&.active {
+			background-color: #000;
+			-webkit-box-shadow: inset 0px -2px 0px 0px rgba(253,56,48,1);
+			-moz-box-shadow: 	inset 0px -2px 0px 0px rgba(253,56,48,1);
+			box-shadow: 		inset 0px -2px 0px 0px rgba(253,56,48,1);
+		}
+
+		&:hover {
+			-webkit-box-shadow: inset 0px -2px 0px 0px rgba(146,146,146,1);
+			-moz-box-shadow: 	inset 0px -2px 0px 0px rgba(146,146,146,1);
+			box-shadow: 		inset 0px -2px 0px 0px rgba(146,146,146,1);
+		}
+	}
+}

@@ -1,0 +1,73 @@
+
+$clipNav: (
+	'video': (
+		id: 			1,
+		bgPos: 			13px 8px,
+		bgPosActive: 	11px 6px,
+		bgSize: 		21px 13px,
+		bgSizeActive: 	24px 18px,
+	),
+	'sizing': (
+		id: 			2,
+		bgPos: 			13px 8px,
+		bgPosActive: 	11px 7px,
+		bgSize: 		21px 13px,
+		bgSizeActive: 	25px 16px,
+	),
+	'audio': (
+		id: 			3,
+		bgPos: 			11px 5px,
+		bgPosActive: 	11px 5px,
+		bgSize: 		25px 19px,
+		bgSizeActive: 	25px 19px,
+	),
+	'color': (
+		id: 			4,
+		bgPos: 			11px 4px,
+		bgPosActive: 	12px 4px,
+		bgSize: 		25px 21px,
+		bgSizeActive: 	23px 21px,
+	),
+	'effects': (
+		id: 			5,
+		bgPos: 			14px 4px,
+		bgPosActive: 	13px 2px,
+		bgSize: 		21px 20px,
+		bgSizeActive: 	23px 24px,
+	),
+	'file': (
+		id: 			6,
+		bgPos: 			11px 4px,
+		bgPosActive: 	11px 4px,
+		bgSize: 		25px 21px,
+		bgSizeActive: 	25px 21px,
+	)
+);
+
+@mixin setNav($children) {
+	@each $i, $attribute in $clipNav {
+		&:nth-child(#{map-deep-get($clipNav,$i,id)}) {
+			background-image: url('../components/pages/cut/inspector/img/nav/#{$i}.png');
+			background-position: #{map-deep-get($clipNav,$i,bgPos)};
+			background-size: #{map-deep-get($clipNav,$i,bgSize)};
+
+			&.active {
+				background-image: url('../components/pages/cut/inspector/img/nav/#{$i}-active.png');
+				background-position: #{map-deep-get($clipNav,$i,bgPosActive)};
+				background-size: #{map-deep-get($clipNav,$i,bgSizeActive)};
+			}
+		}
+	}
+}
+
+.item {
+	width: 50px;
+	height: 50px;
+	background: red;
+	margin: 5px;
+	display: inline-block;
+
+	&.navClip {
+		@include setNav($clipNav);
+	}
+}

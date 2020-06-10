@@ -1,0 +1,503 @@
+
+// ==> POPUP - MEDIA POOL RECORDING FLOW
+
+$iconsShapes: (
+	'icon-shape-1',
+	'icon-shape-2',
+	'icon-shape-3',
+	'icon-shape-4',
+	'icon-shape-5',
+	'icon-shape-6',
+	'icon-shape-7',
+);
+
+$shapes: (
+	'shape-1',
+	'shape-2',
+	'shape-3',
+	'shape-4',
+	'shape-5',
+	'shape-6',
+	'shape-7',
+);
+
+.popup-content {
+	width: 765px!important;
+	height: 524px;
+	border: 1px solid #000!important;
+	background-color: #27272D!important;
+	padding: 0!important;
+}
+
+.overlay-solid-color {
+	@include size(100%, 100%, block);
+	@include position(0, null, null, 0);
+	z-index: 5;
+}
+
+.overlay-shape {
+	@include size(100%, 100%);
+	@include position(0, null, null, 0);
+	background-color: #fff;
+	background-size: cover;
+	background-position: center;
+	z-index: 5;
+
+	@each $icon in $shapes {
+		&.#{$icon} {
+			background-image: url('../images/popups/media-pool/#{$icon}.png');
+		}
+	}
+}
+
+.overlay-disable {
+	@include size(100%, 69px, none);
+	@include position(0, null, null, 0);
+	background-color: #fff;
+	opacity: 0;
+
+	&.show { display: block; }
+}
+
+.video-popup-content {
+	@include size(760px, calc(100% - 115px));
+
+	> .record-settings-content {
+		@include size(1040px, 300px, block);
+		@include position(-66px, null, null, -140px);
+		background-color: #28282E;
+		border: 1px solid #000;
+		z-index: 3;
+
+		img {
+			@include size(1040px, auto, block);
+			@include position(65px, null, null, -1px);
+		}
+	}
+
+	> .source {
+		@include size(calc(100% - 50px), 400px, block);
+		position: relative;
+		float: left;
+		background-color: #28282E;
+		overflow: hidden;
+
+		&.active {
+			width: calc(100% - 50px);
+		}
+
+		&.audio-only {
+			width: 713px;
+			height: 391px;
+			@include bg('../images/popups/media-pool/audio-waveform.png', repeat-x, -400px 40px, 1995px 285px);
+
+			&:before {
+				content: '';
+				@include size(1px, 100%, block);
+				@include position(0, 0, null, null);
+				background-color: #28282E;
+				border-left: 1px solid #828282;
+			}
+
+			&.active {
+				animation: animation-bg-audio-only 5s infinite linear;
+				animation-delay: 5s;
+
+				&:before {
+					border-left: 1px solid #f00;
+					right: 710px;
+					animation: animation-audio-only 5s linear;
+				}
+			}
+
+			video {
+				display: none;
+			}
+		}
+
+		video {
+			@include size(100%, 100%, block);
+			transform: scale(1.01);
+		}
+	}
+
+	> .video-source-audio {
+		@include size(50px, 400px, block);
+		position: absolute;
+		right: 0;
+		border-left: 1px solid #000;
+
+		&.active {
+			@include size(50px, 150px);
+			top: 129px;
+			right: 21px;
+			background-color: #212126;
+			border: 1px solid #000;
+		}
+
+		.audio-bar {
+			@include size(23px, calc(100% - 22px), block);
+			@include position(11px, null, null, 13px);
+			@include bg('../images/popups/media-pool/meters.png', no-repeat, 0 0, 23px 393px);
+			border: 1px solid #000;
+			overflow: hidden;
+
+			&:before {
+				content: '';
+				@include size(1px, 100%, block);
+				@include position(0, null, null, 10px);
+				background-color: #000;
+			}
+
+			.audio-bar-shadow {
+				@include size(10px, 100%, block);
+				@include position(0, null, null, 0);
+				background-color: #17181A;
+
+				&.right { left: 11px; }
+			}
+
+			&.active {
+				.audio-bar-shadow {
+					animation: animation-bar 2.2s infinite linear;
+
+					&.right {
+						animation: animation-bar 2s infinite reverse;
+					}
+				}
+			}
+		}
+	}
+
+	> .video-recording-bar {
+		@include size(100%, 45px, block);
+		position: relative;
+		clear: both;
+		border-top: 1px solid #000;
+		background-color: #212126;
+
+		//=> ICONS AND TIMER
+
+		.backlight {
+			@include size(34px, 22px, block);
+			@include position(11px, null, null, 12px);
+			@include bg('../images/popups/media-pool/backlight.png', no-repeat, center, 34px 22px);
+
+			&.active {
+				background-image: url('../images/popups/media-pool/backlight-active.png');
+			}
+		}
+
+		// => BACKLIGHT SETTINGS
+
+		.backlight-settings {
+			@include size(698px, 100%, flex);
+			@include position(0, 0, null, null);
+			align-items: center;
+			background-color: #28282E;
+			border-left: 1px solid #000;
+		}
+
+		.front-light-toggle {
+			@include size(140px, 100%, flex);
+			position: relative;
+			float: left;
+			align-items: center;
+			justify-content: center;
+			border-right: 1px solid #000;
+
+			.Toggle, .LabelToggle {
+				margin-top: 0;
+			}
+		}
+
+		//=> COLOR / SHAPE / SLIDER = CONTAINER
+
+		.color-shape-container {
+			@include size(calc(100% - 140px), 100%, block);
+			position: relative;
+			float: left;
+
+			> .LabelToggle {
+				position: absolute;
+
+				&.child1 { top: 9px; left: 18px; }
+				&.child2 { top: 9px; left: 185px;}
+			}
+
+			.color-shape {
+				@include size(36px, 21px, );
+				position: absolute;
+				float: left;
+				border: 1px solid #000;
+				border-radius: 2px;
+
+				&:before {
+					content: "";
+					@include size(10px, 100%, block);
+					@include position(-1px, -21px, null, null);
+					@include bg('../images/common/arrow@2x.png', no-repeat, center, 11px 11px);
+				}
+
+				&.child1 { top: 13px; left: 99px; }
+				&.child2 {
+					top: 13px;
+					left: 241px;
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 100%;
+					@each $icon in $iconsShapes {
+						&.#{$icon} {
+							background-image: url('../images/popups/media-pool/#{$icon}.png');
+						}
+					}
+				}
+			}
+		}
+
+		// => SUBMENU COLOR PICKER
+
+		.color-picker-container {
+			@include size(221px, auto, block);
+			@include position(39px, null, null, 144px);
+			background-color: #28282E;
+			border: 1px solid #000;
+			border-radius: 2px;
+
+			.menu-picker {
+				@include size(100%, 38px, flex);
+				align-items: center;
+				justify-content: center;
+				border-bottom: 1px solid #000;
+
+				.picker-solid,
+				.picker-gradient,
+				.picker-radial {
+					@include size(26px, 16px, block);
+					position: relative;
+					float: left;
+
+					&.active {
+						&:before {
+							content: '';
+							@include size(calc(100% - 2px), 1px, block);
+							@include position(null, null, -4px, 1px);
+							background-color: #E64B3D;
+						}
+					}
+				}
+
+				.picker-solid 		{ @include bg('../images/popups/media-pool/solid-icon.png', no-repeat, center, 26px 16px); }
+				.picker-gradient 	{ @include bg('../images/popups/media-pool/gradient-icon.png', no-repeat, center, 26px 16px); margin: 0 9px; }
+				.picker-radial 		{ @include bg('../images/popups/media-pool/radial-icon.png', no-repeat, center, 26px 16px); }
+			}
+
+			.slider-container {
+				@include size(100%, auto, block);
+				padding: 10px 15px;
+				border-bottom: 1px solid #000;
+
+				.slider-gradient-radial {
+					@include size(190px, 7px);
+					position: relative;
+					border: 1px solid #000;
+					border-radius: 7px;
+
+					&:before {
+						content: "";
+						@include size(7px, 7px, block);
+						@include position(-3px, null, null, 0);
+						border: 2px solid #fff;
+						border-radius: 50%;
+					}
+
+					&:after {
+						content: "";
+						@include size(7px, 7px, block);
+						@include position(-3px, 0, null, null);
+						border: 2px solid #fff;
+						border-radius: 50%;
+					}
+				}
+			}
+
+			.color-container {
+				@include size(100%, 68px, block);
+				padding: 12px 0 14px 18px;
+				border-bottom: 1px solid #000;
+
+				.color-square {
+					@include size(21px, 11px, block);
+					float: left;
+					margin: 0 3px 6px 2px;
+					border: 1px solid #000;
+					border-radius: 2px;
+
+					&.active {
+						border: 1px solid #E64B3D;
+					}
+				}
+			}
+		}
+
+		.shape-container {
+			@include size(196px, auto, block);
+			@include position(39px, null, null, 294px);
+			background-color: #28282E;
+			border: 1px solid #000;
+			border-radius: 2px;
+			padding: 12px 0 9px 16px;
+
+			.icon {
+				@include size(50px, 29px, block);
+				float: left;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 50px 29px;
+				margin: 0 4px 6px 0;
+				border: 1px solid #000;
+				border-radius: 2px;
+
+				@each $icon in $iconsShapes {
+					&.#{$icon} {
+						background-image: url('../images/popups/media-pool/#{$icon}.png');
+					}
+				}
+
+				&.active {
+					border: 1px solid #E64B3D;
+				}
+			}
+		}
+
+		.minimize {
+			@include size(20px, 20px, block);
+			@include position(11px, 12px, null, null);
+			@include bg('../images/popups/media-pool/minimize.png', no-repeat, center, 16px 16px);
+		}
+	}
+
+	.light-video-recording-bar {
+		@include size(223px, 45px);
+		@include position(null, null, 21px, 290px);
+		background-color: rgba(33, 33, 38, 0.85);
+		border: 1px solid #000;
+
+		.rec {
+			@include position(7px, null, null, 12px);
+		}
+
+		.stop {
+			@include position(7px, null, null, 47px);
+		}
+
+		.toggle-maximize {
+			@include size(20px, 20px);
+			@include bg('../images/popups/media-pool/maximize.png', no-repeat, center, 20px 20px);
+			@include position(11px, 12px, null, null);
+		}
+
+		.timer {
+			@include position(10px, null, null, 90px);
+		}
+	}
+}
+
+.timer {
+	@include position(10px, 51px, null, null);
+	font-family: 'Opensans semibold';
+	font-size: 16px;
+	color: #fff;
+
+	&.active { color: #FF0000; }
+}
+
+.rec {
+	@include size(24px, 25px);
+	@include position(7px, 52%, null, null);
+	@include bg('../images/vtr/vtr_record@2x.png', no-repeat, center, 24px 25px);
+
+	&:hover {
+		background-image: url('../images/vtr/vtr_record_hover@2x.png');
+	}
+
+	&:active {
+		@include bg('../images/vtr/vtr_record_push@2x.png', no-repeat, center, 24px 25px);
+	}
+
+	&.active {
+		@include bg('../images/vtr/vtr_record_active@2x.png', no-repeat, center, 24px 25px);
+	}
+}
+
+.stop {
+	@include size(24px, 25px);
+	@include position(7px, 48%, null, null);
+	@include bg('../images/vtr/vtr_stop@2x.png', no-repeat, center, 24px 25px);
+
+	&:hover {
+		background-image: url('../images/vtr/vtr_stop_hover@2x.png');
+	}
+
+	&:active {
+		@include bg('../images/vtr/vtr_stop_push@2x.png', no-repeat, center, 24px 25px);
+	}
+}
+
+@keyframes animation-bar {
+	0%   { height: 82%; } // 300px
+	10%  { height: 89%; }
+	20%	 { height: 87%; }
+	30%	 { height: 85%; }
+	40%	 { height: 90%; }
+	50%  { height: 92%; }
+	60%	 { height: 82%; }
+	70%  { height: 88%; }
+	80%	 { height: 84%; }
+	90%	 { height: 89%; }
+	100% { height: 84%; }
+}
+
+@keyframes animation-audio-only {
+	0% 		{ right: 0; }
+	100% 	{ right: 710px;}
+}
+
+@keyframes animation-bg-audio-only {
+	0% 		{ background-position: -750px 40px; }
+	100% 	{ background-position: -382px 40px; }
+}
+
+
+.MuiBackdrop-root {
+	opacity: 0!important;
+}
+
+.MuiDialog-container {
+	height: 100%;
+	outline: 0;
+}
+
+.MuiDialog-scrollPaper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.MuiDialog-paperWidthSm {
+	max-width: none!important;
+	height: auto;
+	border: 1px solid #000;
+}
+
+.MuiDialog-paper {
+	overflow-y: unset!important;
+}
+
+.MuiPaper-rounded {
+	border-radius: 0px!important;
+}
+
+.MuiPaper-root {
+	background-color: #212126!important;
+}

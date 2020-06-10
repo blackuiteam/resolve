@@ -1,0 +1,65 @@
+
+// ==> HEADER
+
+$icons: (
+	'adr',
+	'audio_library',
+	'audio',
+	'capture',
+	'clips_view',
+	'edl',
+	'effects',
+	'export',
+	'inspector',
+	'keyframes_panel',
+	'lightbox',
+	'luts',
+	'media',
+	'metadata',
+	'meters',
+	'mixer',
+	'nodes',
+	'ofx',
+	'render_queue',
+	'spline',
+	'storage',
+	'sync_bin',
+	'timeline',
+	'titles',
+	'transitions'
+);
+
+.main-header {
+	@include size(100%, 35px);
+	@include position(0px, null, null, 0px);
+	background-color: #17181A;
+	border-bottom: 1px solid #000;
+
+	div {
+		@include size(null, 28px, table);
+		float: left;
+		margin: 3px 0 0 0;
+		padding: 4px 15px 0 45px;
+		font-family: "OpenSans regular";
+		font-size: 12px;
+		color: #929292;
+		background-repeat: no-repeat;
+		background-position: 15px -2px;
+		background-size: 200px 30px;
+		border-right: 1px solid #434346;
+
+		@each $icon in $icons {
+			&.#{$icon} {
+				background-image: url('../images/main-bar/#{$icon}@2x.png');
+
+				&:hover 	{ background-image: url('../images/main-bar/#{$icon}_hover@2x.png'); }
+				&.active 	{ background-image: url('../images/main-bar/#{$icon}_active@2x.png'); }
+			}
+		}
+
+		&:hover 	{ color: #BEBEBE; }
+		&.active 	{ color: #fff; }
+		&.no-border { border: none; }
+		&.right 	{ float: right; }
+	}
+}

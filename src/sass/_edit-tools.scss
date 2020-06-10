@@ -1,0 +1,72 @@
+
+// ==> EDIT TOOLS / VIEWER TOOLBAR
+
+$tools: (
+	'apply',
+	'boring',
+	'center',
+	'closeup',
+	'create_timeline',
+	'fit_to_fill',
+	'in',
+	'insert',
+	'out',
+	'overwrite',
+	'put_on_top',
+	'replace',
+	'ripple_overwrite',
+	'sort_audio',
+	'sort_camera',
+	'sort_clapper',
+	'sort_custom',
+	'sort_duration',
+	'sort_filename',
+	'sort_in',
+	'sort_media',
+	'sort_out',
+	'sort_timecode',
+	'source_write',
+	'split',
+	'to_end',
+	'transition_add',
+	'transition_cycle',
+	'transition_match',
+);
+
+.editTools {
+	@include size(100%, 44px, grid);
+	grid-template-rows: 100%;
+	grid-template-columns: 100px calc(100% - 250px) 150px;
+	align-items: center;
+	background-color: #212126;
+	border-top: 1px solid #000;
+
+	> div {
+
+		&:nth-child(1) {
+			padding: 0 0 0 10px;
+		}
+
+		&:nth-child(2) {
+			display: flex;
+			justify-content: center;
+		}
+
+		div {
+			@include size(30px, 30px, block);
+			float: left;
+			margin: 0 7px;
+
+			@each $icon in $tools {
+				&.#{$icon} {
+					@include bg('../images/cut-edit-tools/#{$icon}@2x.png', no-repeat, center, 30px 30px);
+
+					&:hover 	{ background-image: url('../images/cut-edit-tools/#{$icon}_hover@2x.png');}
+					&:active 	{ background-image: url('../images/cut-edit-tools/#{$icon}_push@2x.png');}
+					&.active 	{ background-image: url('../images/cut-edit-tools/#{$icon}_active@2x.png');}
+					&.disabled 	{ background-image: url('../images/cut-edit-tools/#{$icon}_disabled@2x.png');}
+				}
+			}
+		}
+	}
+}

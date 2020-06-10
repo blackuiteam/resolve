@@ -1,0 +1,14 @@
+
+// ==> APP CONTENT
+
+.Wrapper {
+	@include size(100%, calc(100% - 30px));
+	@include position(0, null, null, 0);
+	background-color: #28282E;
+}
+
+.Content {
+	@include size(100%, calc(100% - 36px));
+	@include position(35px, null, null, 0);
+	background-color: #28282E;
+}

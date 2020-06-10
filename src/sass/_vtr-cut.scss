@@ -1,0 +1,67 @@
+
+// ==> VTR CUT (SPEED EDIT)
+
+$icons: (
+	'inspector_tool',
+	'markin',
+	'markout',
+	'vtr_back',
+	'vtr_fast_review',
+	'vtr_first',
+	'vtr_last',
+	'vtr_loop',
+	'vtr_play_active',
+	'vtr_play_around',
+	'vtr_play',
+	'vtr_stop'
+);
+
+.VtrCut {
+	@include size(100%, 44px, grid);
+	grid-template-rows: 100%;
+	grid-template-columns: 120px calc(80% - 240px) 20% 120px;
+	background-color: #212126;
+	border-top: 1px solid #000;
+
+	> div {
+
+		span {
+			font-family: "opensans regular";
+			color: #fff;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			display: flex;
+			justify-content: center;
+		}
+
+		&:nth-child(4) {
+			display: flex;
+			align-items: center;
+		}
+
+
+		div	{
+			@include size(30px, 100%, block);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 30px 30px;
+			float: left;
+			margin: 0 7px;
+
+			@each $var in $icons {
+				&.#{$var} {
+					background-image: url('../images/vtr/cut/#{$var}@2x.png');
+
+					&:hover  { background-image: url('../images/vtr/cut/#{$var}_hover@2x.png'); }
+					&:active { background-image: url('../images/vtr/cut/#{$var}_push@2x.png'); }
+					// &.active { background-image: url('../images/vtr/cut/#{$var}_active@2x.png'); }
+					// &.disabled { background-image: url('../images/vtr/cut/#{$var}_disabled@2x.png'); }
+					// &.active:hover { background-image: url('../images/vtr/cut/#{$var}_active_hover@2x.png'); }
+					// &.active:active { background-image: url('../images/vtr/cut/#{$var}_active_push@2x.png'); }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			margin:0;
+			padding:0;
+		}
+
+		div.sticky {
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+			background-color: yellow;
+			display: block;
+			width: 100%;
+			height: 150px;
+		}
+
+		div.sticky2 {
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+			bottom:0;
+			background-color: blue;
+			display: block;
+			width: 100%;
+			height: 150px;
+			z-index:3;
+		}
+
+		div.sticky3 {
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+			bottom:0;
+			background-color: red;
+			display: block;
+			width: 100%;
+			height: 150px;
+			z-index:2;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="sticky">I will stick to the screen when you reach my scroll position</div>
+
+	<p>Lorem t. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+
+	<div class="sticky2">I will stick to the screen when you reach my scroll position</div>
+
+	<p>Lorem t. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+
+	<div class="sticky3">I will stick to the screen when you reach my scroll position</div>
+
+	<p>Lorem t. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+</body>
+</html>
+
+<!-- <div className="sticky-shadown" style={scroll.y > 1 ? {'display':'none'} : {'display':'block'}}></div> -->
+<!-- style={scroll.y > 900 ? {'backgroundColor':'yellow'}:{'':''}} 'boxShadow':'0px 6px 27px 0px rgba(0,0,0,0.46)' -->

@@ -1,0 +1,51 @@
+
+// ==> NORMALIZE
+
+html {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	user-select: none;
+	color: #929292;
+	cursor: default;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	margin-top: 2rem;
+	box-sizing: border-box;
+	background-color: #28282E;
+	overflow: hidden;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+.none { display: none; }
+
+.gutter {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	border-top: 1px solid #000;
+
+	&.gutter-horizontal {
+		height: 100%;
+		background-color: #000;
+
+		&:hover {
+			cursor: col-resize;
+		}
+	}
+
+	&:hover {
+		cursor: row-resize;
+	}
+}

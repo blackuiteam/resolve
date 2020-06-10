@@ -1,0 +1,48 @@
+// ==> VTR - GLOBAL
+
+$icons: (
+	"vtr_back",
+	"vtr_ff",
+	"vtr_first",
+	"vtr_last",
+	"vtr_loop",
+	"vtr_pingpong",
+	"vtr_play_active",
+	"vtr_play_around",
+	"vtr_play",
+	"vtr_record",
+	"vtr_rehearse",
+	"vtr_rwd",
+	"vtr_stepforward",
+	"vtr_stop"
+);
+
+.Vtr {
+	@include size(100%, 44px, block);
+	background-color: #212126;
+	border-top: 1px solid #000;
+
+	div {
+		@include size(24px, 100%, block);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 24px 25px;
+		float: left;
+		margin: 0 6px;
+		border: 1px solid red;
+
+		@each $var in $icons {
+			&.#{$var} {
+				background-image: url("../images/vtr/#{$var}@2x.png");
+
+				&:hover {
+					background-image: url("../images/vtr/#{$var}_hover@2x.png");
+				}
+
+				&:active {
+					background-image: url("../images/vtr/#{$var}_push@2x.png");
+				}
+			}
+		}
+	}
+}

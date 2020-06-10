@@ -1,0 +1,19 @@
+
+//==> SCSS IMPORTS
+
+@import '_mixins.scss';
+@import '_normalize.scss';
+@import '_app-content.scss';
+@import '_navigation.scss';
+@import '_main-header.scss';
+@import '_mini-header.scss';
+@import '_viewer.scss';
+@import '_edit-tools.scss';
+@import '_timeline-cut.scss';
+@import '_vtr-cut.scss';
+@import '_inspector-nav.scss';
+@import '_inspector.scss';
+@import '_popups.scss';
+
+@import './node_modules/video-react/styles/scss/video-react';
+// @import '_teste.scss';

@@ -1,0 +1,356 @@
+
+// ==> TIMELINE CUT (SPEED EDIT)
+
+// --> MINI TIMELINE
+
+$miniTimeline: (
+	(
+		'audio_only',
+		'96px',
+		'52px'
+	),
+	(
+		'cti_free',
+		'26px',
+		'52px'
+	),
+	(
+		'cti_lock',
+		'26px',
+		'13px'
+	),
+	(
+		'video_only',
+		'96px',
+		'13px'
+	)
+);
+
+$trackElement: (
+	'mute',
+	'TL_lock',
+	'TL_sidebar_add_track',
+	'TL_sidebar_marker',
+	'TL_sidebar_snapping',
+	'TL_video_off',
+	'TL_video_on_active'
+);
+
+.MiniTimelineCut {
+	@include size(100%, 142px);
+	position: relative;
+	border-bottom: 1px solid #000;
+}
+
+.MiniTimelineSideBar {
+	@include size(130px, 100%, block);
+	float: left;
+	background-color: #212126;
+	border-right: 1px solid #000;
+
+	.icons-sidebar {
+		@include size(99px, 100%, block);
+		position: relative;
+		float: left;
+
+		&:before {
+			content: '';
+			@include size(84px, 1px);
+			@include position(70px, 8px, null, null);
+			background-color: #000;
+		}
+
+		.icons {
+			@include size(31px, 22px, block);
+			background-repeat: no-repeat;
+			background-size: 31px 22px;
+			background-position: center;
+			position: absolute;
+
+			@each $class, $top, $left in $miniTimeline {
+				&.#{$class} {
+					background-image: url('../images/timelines/cut/#{$class}@2x.png');
+					top: #{$top};
+					left: #{$left};
+
+					&:hover 	{ background-image: url('../images/timelines/cut/#{$class}_hover@2x.png'); }
+					&:active 	{ background-image: url('../images/timelines/cut/#{$class}_push@2x.png'); }
+					&.active 	{ background-image: url('../images/timelines/cut/#{$class}_active@2x.png');}
+				}
+			}
+		}
+	}
+
+	.track-numbers {
+		@include size(30px, 100%, flex);
+		float: left;
+		align-items: center;
+		border-left: 1px solid #000;
+
+		.number-container {
+			@include size(29px, auto, flex);
+  			flex-direction: column-reverse;
+
+			div {
+				@include size(calc(100% - 2px), 20px, block);
+				margin: 0 0 0 1px;
+				padding: 3px 0 0 0;
+				font-family: "opensans regular";
+				text-align: center;
+				font-size: 9px;
+
+				&.active {
+					background-color: #28282E;
+					color: #E64B3D;
+				}
+			}
+		}
+	}
+}
+
+
+.MiniTimelineClips {
+	@include size(calc(100% - 131px), 100%, block);
+	@include bg('../images/common/markers-mini-timeline.png', repeat-x, 14px 0, 297px 20px);
+	float: left;
+
+	.tracks-container {
+		@include size(100%, 100%, flex);
+		position: relative;
+		flex-direction: column-reverse;
+		justify-content: center;
+
+		.mini-cti {
+			@include size(17px, 100%, block);
+			@include position(0, null, null, 1000px);
+			@include bg('../images/common/Cti-full.png', no-repeat, 0 0, 17px 1214px);
+			z-index: 3;
+		}
+
+		.track {
+			@include size(100%, 20px, block);
+
+			.clip {
+				@include size(null, 100%, block);
+				position: relative;
+				float: left;
+				border: 1px solid #000;
+				border-radius: 4px;
+
+				&.video {
+					background-color: #4376A1;
+					z-index: 0;
+				}
+
+				&.text {
+					background-color: #B9B097;
+				}
+
+				&.generator {
+					background-color: #9973A0;
+				}
+
+				&.transition {
+					background-image: url('../images/common/mini-transition.png');
+					background-repeat: no-repeat;
+					background-size: 82px 20px;
+					border: none;
+					z-index: 2;
+				}
+			}
+		}
+	}
+}
+
+.TimelineCut {
+	@include size(100%, calc(100% - 142px), block);
+	position: relative;
+
+	&:before {
+		content:'';
+		@include size(17px, 100%, block);
+		@include position(0, null, null, calc(50% + 57px));
+		@include bg('../images/common/Cti-full.png', no-repeat, 0 0, 17px 1214px);
+		z-index: 3;
+	}
+
+	.timeline-wrapper {
+		@include size(calc(100% - 130px), 100%, block);
+		position: relative;
+		float: left;
+		overflow: scroll;
+	}
+}
+
+.TimelineSideBar {
+	@include size(130px, 100%, block);
+	position: relative;
+	float: left;
+	background-color: #212126;
+	border-right: 1px solid #000;
+
+	.sidebar-tools {
+		@include size(100%, 30px, flex);
+		align-items: center;
+		justify-content: center;
+		border-bottom: 1px solid #000;
+
+		.icons {
+			@include size(22px, 22px, block);
+			float: left;
+			margin: 0 3px;
+			border: none;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 22px 22px;
+
+			@each $tl in $trackElement {
+				&.#{$tl} {
+					background-image: url('../images/timelines/track-elements/#{$tl}@2x.png');
+				}
+			}
+		}
+	}
+
+	.sidebar-tracks {
+		@include size(100%, calc(100% - 70px), flex);
+		flex-direction: column-reverse;
+		border-bottom: 1px solid #000;
+
+		.tracks {
+			@include size(100%, 101px, grid);
+			grid-template-columns: 100px 30px;
+			grid-template-rows: 100%;
+			border-top: 1px solid #000;
+
+			&.active {
+				background-color: #28282E;
+
+				div {
+					&:nth-child(2) { color: #E64B3D; }
+				}
+			}
+
+			div {
+				&:nth-child(1),
+				&:nth-child(2) {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-family: "opensans regular";
+					font-size: 12px;
+				}
+
+				&:nth-child(1) {
+					border-right: 1px solid #000;
+
+					.icons {
+						@include size(22px, 22px, block);
+						float: left;
+						margin: 0 3px;
+						border: none;
+						background-repeat: no-repeat;
+						background-position: center;
+						background-size: 22px 22px;
+
+						@each $tl in $trackElement {
+							&.#{$tl} {
+								background-image: url('../images/timelines/track-elements/#{$tl}@2x.png');
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.TimelineClips {
+	@include size(200%, 100%, block);
+	@include bg('../images/common/markers-timeline.png', repeat-x, -109px -1px, 328px 839px);
+	position: relative;
+	float: left;
+
+	.tracks-container {
+		@include size(100%, calc(100% - 40px), flex);
+		flex-direction: column-reverse;
+		padding: 0 calc(100% / 4);
+
+		&:before, &:after {
+			content: "";
+			@include size(calc(100% / 4), 100%, block);
+			background-color: #000;
+			opacity: .2;
+		}
+
+		&:before { @include position(0, null, null, 0); }
+		&:after  { @include position(0, 0, null, null); }
+	}
+
+	.track {
+		@include size(calc(100% / 2) + 520px, 101px, block );
+		position: relative;
+
+		.clip {
+			@include size(null, 100%, block);
+			position: relative;
+			float: left;
+			border: 1px solid #000;
+			border-radius: 4px;
+
+			span {
+				@include position(null, null, 10px, 10px);
+				height: 20px;
+				padding: 2px 0 0 23px;
+				color: #fff;
+				font-family: "opensans regular";
+				font-size: 11px;
+
+				&.text {
+					@include bg('../images/common/clip-text-icon.png', no-repeat, 0 0, 20px 20px);
+				}
+
+				&.generator {
+					@include bg('../images/common/clip-text-icon.png', no-repeat, 0 0, 20px 20px);
+				}
+
+			}
+
+			&.video {
+				background-color: #4376A1;
+				@include bg('../images/common/audio-wave.png', repeat-x, 0 bottom, 298px 22px);
+				z-index: 0;
+
+				.image-box {
+					@include size(calc(100% - 6px), 75px);
+					@include position(3px, null, null, 3px);
+					border: 1px solid #000;
+
+					&.clip-01 {
+						@include bg('../images/common/clip-01-bg.png', no-repeat, -1025px 0, 3066px 82px);
+					}
+
+					&.clip-02 {
+						@include bg('../images/common/clip-01-bg.png', no-repeat, 0 0, 3066px 82px);
+					}
+				}
+			}
+
+			&.text {
+				background-color: #B9B097;
+			}
+
+			&.generator {
+				background-color: #9973A0;
+			}
+
+			&.transition {
+				background-image: url('../images/common/transition.png');
+				background-repeat: no-repeat;
+				background-size: 166px 101px;
+				border: none;
+				z-index: 2;
+			}
+		}
+	}
+}
