@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/resolve/static/css/main.98c6d2b5.chunk.css",
-    "main.js": "/resolve/static/js/main.4c005d07.chunk.js",
-    "main.js.map": "/resolve/static/js/main.4c005d07.chunk.js.map",
+    "main.css": "/resolve/static/css/main.408de235.chunk.css",
+    "main.js": "/resolve/static/js/main.96be124a.chunk.js",
+    "main.js.map": "/resolve/static/js/main.96be124a.chunk.js.map",
     "runtime-main.js": "/resolve/static/js/runtime-main.b9b3cddd.js",
     "runtime-main.js.map": "/resolve/static/js/runtime-main.b9b3cddd.js.map",
-    "static/js/2.7248e987.chunk.js": "/resolve/static/js/2.7248e987.chunk.js",
-    "static/js/2.7248e987.chunk.js.map": "/resolve/static/js/2.7248e987.chunk.js.map",
+    "static/js/2.ba2a7663.chunk.js": "/resolve/static/js/2.ba2a7663.chunk.js",
+    "static/js/2.ba2a7663.chunk.js.map": "/resolve/static/js/2.ba2a7663.chunk.js.map",
     "index.html": "/resolve/index.html",
-    "precache-manifest.3805d8d0e861534b507d2df5ecc2ab78.js": "/resolve/precache-manifest.3805d8d0e861534b507d2df5ecc2ab78.js",
+    "precache-manifest.844677bd8269e72692f5bf9cc7cfa98a.js": "/resolve/precache-manifest.844677bd8269e72692f5bf9cc7cfa98a.js",
     "service-worker.js": "/resolve/service-worker.js",
-    "static/css/main.98c6d2b5.chunk.css.map": "/resolve/static/css/main.98c6d2b5.chunk.css.map",
-    "static/js/2.7248e987.chunk.js.LICENSE.txt": "/resolve/static/js/2.7248e987.chunk.js.LICENSE.txt",
+    "static/css/main.408de235.chunk.css.map": "/resolve/static/css/main.408de235.chunk.css.map",
+    "static/js/2.ba2a7663.chunk.js.LICENSE.txt": "/resolve/static/js/2.ba2a7663.chunk.js.LICENSE.txt",
     "static/media/attributes.png": "/resolve/static/media/attributes.f089da84.png",
     "static/media/audio-tab.png": "/resolve/static/media/audio-tab.fbcc1576.png",
     "static/media/audio-transition.png": "/resolve/static/media/audio-transition.da573640.png",
-    "static/media/main.css": "/resolve/static/media/viewer_image.8dc1da21.png",
+    "static/media/main.css": "/resolve/static/media/viewer_image.0d1b6dfd.png",
     "static/media/background.png": "/resolve/static/media/background.76688b97.png",
     "static/media/bmd-camera-raw-02.png": "/resolve/static/media/bmd-camera-raw-02.d9e33a3b.png",
     "static/media/bmd-camera-raw-03.png": "/resolve/static/media/bmd-camera-raw-03.6cd5cf7a.png",
@@ -25,6 +25,8 @@
     "static/media/color-selector.png": "/resolve/static/media/color-selector.f27c764d.png",
     "static/media/color-wheels.png": "/resolve/static/media/color-wheels.fb3fcca2.png",
     "static/media/cropping-02.png": "/resolve/static/media/cropping-02.783bc806.png",
+    "static/media/diaz-facecam.mp4": "/resolve/static/media/diaz-facecam.97f48fbc.mp4",
+    "static/media/diaz-gameplay.webm": "/resolve/static/media/diaz-gameplay.a1faf0f8.webm",
     "static/media/embedded-content.png": "/resolve/static/media/embedded-content.1f7a5927.png",
     "static/media/eq-content-01.png": "/resolve/static/media/eq-content-01.09c0d2e2.png",
     "static/media/eq-content-02.png": "/resolve/static/media/eq-content-02.a0785423.png",
@@ -54,13 +56,12 @@
     "static/media/transform.png": "/resolve/static/media/transform.9f8ff2fe.png",
     "static/media/video-composite.png": "/resolve/static/media/video-composite.25d6f468.png",
     "static/media/video-transition.png": "/resolve/static/media/video-transition.59ab1656.png",
-    "static/media/wedding.mp4": "/resolve/static/media/wedding.3c9a6bd4.mp4",
     "static/media/white-balance.png": "/resolve/static/media/white-balance.cb038f73.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b9b3cddd.js",
-    "static/js/2.7248e987.chunk.js",
-    "static/css/main.98c6d2b5.chunk.css",
-    "static/js/main.4c005d07.chunk.js"
+    "static/js/2.ba2a7663.chunk.js",
+    "static/css/main.408de235.chunk.css",
+    "static/js/main.96be124a.chunk.js"
   ]
 }
