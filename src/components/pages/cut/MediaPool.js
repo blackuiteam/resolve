@@ -768,7 +768,7 @@ function MediaPool() {
 					{/* <div className="top-shadown"></div> */}
 					{/* SCENE 01 */}
 					{/* <div style={scene1 ? {'display':'none'} : {'display':'inline-block'}}'boxShadow':'0px 6px 27px 0px rgba(0,0,0,0.46)'> */}
-						<div className={classNames('sticky', scene1 ? 'none':'')} onClick={()=> resetScroll()} style={scroll.y > 1 ? {'boxShadow':'0px 6px 27px 0px rgba(0,0,0,0.46)'} : {'zIndex':'4'}}>
+						<div className={classNames('sticky', scene1 ? 'none':'')} onClick={()=> resetScroll()} style={scroll.y > 1 ? {} : {'zIndex':'4'}}>
 							<h3 onClick={()=> setScene1(!scene1)}>Scene 1</h3>
 						</div>
 						<div className="sticky-container" style={scene1 ? {'display':'none'} : {'display':'block', 'padding':'10px 0 10px 35px'}}>
