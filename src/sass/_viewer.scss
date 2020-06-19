@@ -30,6 +30,18 @@ $clipBg: (
 	'clip-25',
 );
 
+$clipInterview: (
+	'interview-01',
+	'interview-02',
+	'interview-03',
+	'interview-04',
+	'interview-05',
+	'interview-06',
+	'interview-07',
+	'interview-08',
+	'interview-09'
+);
+
 $scale: (
 	'1':'-7px',
 	'2':'10%',
@@ -148,6 +160,41 @@ $scale: (
 			}
 		}
 
+		.non-sticky-diaz {
+			@include size(calc(100% - 10px), 48px, flex);
+			align-items: center;
+			position: relative;
+			margin: 0;
+			padding: 0 0 0 35px;
+			background-color: #28282D;
+			z-index: 1;
+
+			&.none { display: none; }
+
+			h3 {
+				@include font('bold', 13px, null, #929292);
+				@include position(14px, null, null, 22px);
+
+				span, img { display: inline-block; color: #fff; }
+
+				img { margin: 0 5px; }
+			}
+
+			&:before {
+				content: "";
+				@include size(calc(100% - 30px), 1px, block);
+				@include position(null, null, 8px, 20px);
+				background-color: #3C3C3C;
+			}
+
+			&:after {
+				content: "";
+				@include size(10px, 40px, block);
+				@include position(0, -10px, null, null);
+				background-color: #28282D;
+			}
+		}
+
 		.sticky {
 			@include size(calc(100% - 10px), 40px, flex);
 			align-items: center;
@@ -197,6 +244,90 @@ $scale: (
 			&.sticky4 {
 				top: 0;
 				bottom: -20px;
+			}
+		}
+	}
+
+	.clipMediaPool-large {
+		@include size(calc(100% - 40px), 108px, block);
+		border: 1px solid #000;
+		border-radius: 4px;
+		margin: 0 0 8px 20px;
+
+		>.clip-thumb {
+			@include size(181px, 102px, block);
+			position: relative;
+			float: left;
+			border: 1px solid #000;
+			border-radius: 4px;
+			margin: 2px 0 2px 2px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			&:before {
+				content: "";
+				@include size(16px, 12px);
+				@include position(null, null, 5px, 3px);
+				@include bg('../images/media/thumbnail-view/thumb_audio@2x.png', no-repeat, center, 16px 12px);
+			}
+
+			@each $icon in $clipInterview {
+				&.#{$icon} {
+					background-image: url('../images/common/thumbnail/#{$icon}.png');
+				}
+			}
+		}
+
+		>.clip-description {
+			@include size(calc(100% - 190px), 102px, block);
+			float: left;
+			margin: 2px;
+			padding: 7px 0 0 0;
+
+			.row-description {
+				@include size(calc(100% - 20px), 31px, block);
+				border-bottom: 1px solid #3E3E42;
+
+				&:nth-child(2) { height: 32px; }
+				&:nth-child(3) {
+					&.meta {
+						@include bg('../images/common/note.png', no-repeat, 99% 8px, 10px 12px);
+					}
+				}
+
+				.title {
+					display: inline-block;
+					@include font(semibold, 16px, left, #fff);
+					margin: 1px 0 0 6px;
+				}
+
+				.subtitle {
+					@include font(regular, 12px, left, #929292 );
+					display: block;
+					margin: 7px 0 0 6px;
+					float: left;
+
+					span {
+						margin: 0 15px 0 0;
+
+						&:first-child { margin: 0 16px 0 16px; }
+						&:last-child { margin: 0; }
+					}
+				}
+
+				.clip-color {
+					@include size(9px);
+					display: block;
+					float: left;
+					margin: 12px 1px 0 8px;
+					border: 1px solid #000;
+					border-radius: 2px;
+				}
+
+				&:last-child {
+					border-bottom: none;
+				}
 			}
 		}
 	}
