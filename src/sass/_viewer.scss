@@ -75,6 +75,19 @@ $scale: (
 		font-size: 11px;
 		color: #fff;
 		padding: 0 0 0 10px;
+
+		span {
+			position: relative;
+			color:#929292;
+			margin: 0 24px 0 0;
+
+			&:after {
+				content:"";
+				@include size(11px);
+				@include bg('../images/common/arrow_right@2x.png', no-repeat, center, 11px 11px);
+				@include position(3px, -17px, null, null);
+			}
+		}
 	}
 
 	.clipsWrapper {
@@ -161,11 +174,16 @@ $scale: (
 		}
 
 		.non-sticky-diaz {
-			@include size(calc(100% - 10px), 48px, flex);
+			// @include size(calc(100% - 10px), 48px, flex);
+			@include size(calc(100% - 10px), 42px, flex);
 			align-items: center;
-			position: relative;
-			margin: 0;
+			// position: relative;
+			// margin: 0;
+			margin-bottom: 6px;
 			padding: 0 0 0 35px;
+			position: sticky;
+			position: -webkit-sticky;
+			top: 0;
 			background-color: #28282D;
 			z-index: 1;
 
@@ -183,7 +201,8 @@ $scale: (
 			&:before {
 				content: "";
 				@include size(calc(100% - 30px), 1px, block);
-				@include position(null, null, 8px, 20px);
+				@include position(null, null, 2px, 20px);
+				// @include position(null, null, 8px, 20px);
 				background-color: #3C3C3C;
 			}
 
@@ -250,9 +269,19 @@ $scale: (
 
 	.clipMediaPool-large {
 		@include size(calc(100% - 40px), 108px, block);
+		background-color: #212126;
 		border: 1px solid #000;
 		border-radius: 4px;
 		margin: 0 0 8px 20px;
+
+		&:hover {
+			transition: .3s;
+			box-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
+		}
+
+		&.active {
+			box-shadow: 0px 0px 0px 2px rgba(230,75,61,1);
+		}
 
 		>.clip-thumb {
 			@include size(181px, 102px, block);

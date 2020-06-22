@@ -23,7 +23,8 @@ import {
 	sortMenuOrder,
 	timeCodeList,
 	cameraSorting,
-	dateTimeSorting
+	dateTimeSorting,
+	clipNameSorting
 } from './data/mediapool-data';
 
 import {
@@ -341,6 +342,11 @@ function MediaPool() {
 
 	const [ cameraA, setCameraA ] = useState(false);
 	const [ scene1, setScene1 ] = useState(false);
+
+	const [ timeCodeIndex, setTimeCode ] = useState(0);
+	const [ cameraSortingIndex, setCameraSorting ] = useState(0);
+	const [ dataTimeSortingIndex, setDateTimeSorting ] = useState(0);
+	const [ clipNameSortingIndex, setClipNameSorting ] = useState(0);
 
 	return (
 		<>
@@ -662,7 +668,7 @@ function MediaPool() {
 
 			{/* Content */}
 			<div className="MediaPoolContent">
-					<div className="breadcrumb">Master - Doc Interview</div>
+					<div className="breadcrumb"><span>Master</span> Doc Interview</div>
 
 				{/* DEFAULT CLIPS VIEW */}
 				<div className="clipsWrapper" style={sortIndex !== -1 ? {'display':'none'} : {'display':'block'}}>
@@ -678,36 +684,34 @@ function MediaPool() {
 				<div className="clipsWrapper" style={sortIndex !== 0 ? {'display':'none'} : {'display':'block', 'padding':'0 0 20px 0'}}>
 					{timeCodeList.map((clip, i) => (
 						<>
-						<div className={classNames('non-sticky-diaz',)}>
-							<h3 style={{'color':'#fff'}}>{clip.header}</h3>
+						<div className={classNames('non-sticky-diaz', clip.header === false ? 'none':'')}>
+							<h3 style={clip.header === false ? {'display':'none'}: {'color':'#fff'}}>{clip.header}</h3>
 						</div>
-						{clip.content.map((clip, i)=> (
-							<div className="clipMediaPool-large">
-								<div className={`clip-thumb ${clip.thumb}`}></div>
-								<div className="clip-description">
-									<div className="row-description">
-										<div className="title">{clip.title}</div>
+						<div className={classNames('clipMediaPool-large', timeCodeIndex === i ? 'active':'')} onClick={() => setTimeCode(i)}>
+							<div className={`clip-thumb ${clip.thumb}`}></div>
+							<div className="clip-description">
+								<div className="row-description">
+									<div className="title">{clip.title}</div>
+								</div>
+								<div className="row-description">
+									<div className="clip-color" style={{'backgroundColor':`${clip.clipcolor}`}}></div>
+									<div className="subtitle">
+										{clip.subtitle1}
+										<span>{clip.span1_1}</span>
+										<span>{clip.span1_2}</span>
+										<span>{clip.span1_3}</span>
 									</div>
-									<div className="row-description">
-										<div className="clip-color" style={{'backgroundColor':`${clip.clipcolor}`}}></div>
-										<div className="subtitle">
-											{clip.subtitle1}
-											<span>{clip.span1_1}</span>
-											<span>{clip.span1_2}</span>
-											<span>{clip.span1_3}</span>
-										</div>
-									</div>
-									<div className={classNames('row-description', clip.meta ? 'meta' : '')}>
-										<div className="subtitle">
-											{clip.subtitle2}
-											<span>{clip.span2_1}</span>
-											<span>{clip.span2_2}</span>
-											<span>{clip.span2_3}</span>
-										</div>
+								</div>
+								<div className={classNames('row-description', clip.meta ? 'meta' : '')}>
+									<div className="subtitle">
+										{clip.subtitle2}
+										<span>{clip.span2_1}</span>
+										<span>{clip.span2_2}</span>
+										<span>{clip.span2_3}</span>
 									</div>
 								</div>
 							</div>
-						))}
+						</div>
 					</>
 					))}
 				</div>
@@ -716,36 +720,34 @@ function MediaPool() {
 				<div className="clipsWrapper" style={sortIndex !== 1 ? {'display':'none'} : {'display':'block','padding':'0 0 20px 0'}}>
 					{cameraSorting.map((clip, i) => (
 						<>
-						<div className={classNames('non-sticky-diaz',)}>
+						<div className={classNames('non-sticky-diaz', clip.header === false ? 'none':'')}>
 							<h3 style={{'color':'#fff'}}>{clip.header}</h3>
 						</div>
-						{clip.content.map((clip, i)=> (
-							<div className="clipMediaPool-large">
-								<div className={`clip-thumb ${clip.thumb}`}></div>
-								<div className="clip-description">
-									<div className="row-description">
-										<div className="title">{clip.title}</div>
+						<div className={classNames('clipMediaPool-large', cameraSortingIndex === i ? 'active':'')} onClick={()=> setCameraSorting(i)}>
+							<div className={`clip-thumb ${clip.thumb}`}></div>
+							<div className="clip-description">
+								<div className="row-description">
+									<div className="title">{clip.title}</div>
+								</div>
+								<div className="row-description">
+									<div className="clip-color" style={{'backgroundColor':`${clip.clipcolor}`}}></div>
+									<div className="subtitle">
+										{clip.subtitle1}
+										<span>{clip.span1_1}</span>
+										<span>{clip.span1_2}</span>
+										<span>{clip.span1_3}</span>
 									</div>
-									<div className="row-description">
-										<div className="clip-color" style={{'backgroundColor':`${clip.clipcolor}`}}></div>
-										<div className="subtitle">
-											{clip.subtitle1}
-											<span>{clip.span1_1}</span>
-											<span>{clip.span1_2}</span>
-											<span>{clip.span1_3}</span>
-										</div>
-									</div>
-									<div className={classNames('row-description', clip.meta ? 'meta' : '')}>
-										<div className="subtitle">
-											{clip.subtitle2}
-											<span>{clip.span2_1}</span>
-											<span>{clip.span2_2}</span>
-											<span>{clip.span2_3}</span>
-										</div>
+								</div>
+								<div className={classNames('row-description', clip.meta ? 'meta' : '')}>
+									<div className="subtitle">
+										{clip.subtitle2}
+										<span>{clip.span2_1}</span>
+										<span>{clip.span2_2}</span>
+										<span>{clip.span2_3}</span>
 									</div>
 								</div>
 							</div>
-						))}
+						</div>
 					</>
 					))}
 				</div>
@@ -754,43 +756,75 @@ function MediaPool() {
 				<div className="clipsWrapper" style={sortIndex !== 2 ? {'display':'none'} : {'display':'block','padding':'0 0 20px 0'}}>
 					{dateTimeSorting.map((clip, i) => (
 						<>
-						<div className={classNames('non-sticky-diaz',)}>
+						<div className={classNames('non-sticky-diaz', clip.header === false ? 'none':'')}>
 							<h3 style={{'color':'#fff'}}>{clip.header}</h3>
 						</div>
-						{clip.content.map((clip, i)=> (
-							<div className="clipMediaPool-large">
-								<div className={`clip-thumb ${clip.thumb}`}></div>
-								<div className="clip-description">
-									<div className="row-description">
-										<div className="title">{clip.title}</div>
+						<div className={classNames('clipMediaPool-large', dataTimeSortingIndex === i ? 'active':'')} onClick={() => setDateTimeSorting(i)}>
+							<div className={`clip-thumb ${clip.thumb}`}></div>
+							<div className="clip-description">
+								<div className="row-description">
+									<div className="title">{clip.title}</div>
+								</div>
+								<div className="row-description">
+									<div className="clip-color" style={{'backgroundColor':`${clip.clipcolor}`}}></div>
+									<div className="subtitle">
+										{clip.subtitle1}
+										<span>{clip.span1_1}</span>
+										<span>{clip.span1_2}</span>
+										<span>{clip.span1_3}</span>
+										<span>{clip.span1_4}</span>
 									</div>
-									<div className="row-description">
-										<div className="clip-color" style={{'backgroundColor':`${clip.clipcolor}`}}></div>
-										<div className="subtitle">
-											{clip.subtitle1}
-											<span>{clip.span1_1}</span>
-											<span>{clip.span1_2}</span>
-											<span>{clip.span1_3}</span>
-											<span>{clip.span1_4}</span>
-										</div>
-									</div>
-									<div className={classNames('row-description', clip.meta ? 'meta' : '')}>
-										<div className="subtitle">
-											{clip.subtitle2}
-											<span>{clip.span2_1}</span>
-											<span>{clip.span2_2}</span>
-											<span>{clip.span2_3}</span>
-										</div>
+								</div>
+								<div className={classNames('row-description', clip.meta ? 'meta' : '')}>
+									<div className="subtitle">
+										{clip.subtitle2}
+										<span>{clip.span2_1}</span>
+										<span>{clip.span2_2}</span>
+										<span>{clip.span2_3}</span>
 									</div>
 								</div>
 							</div>
-						))}
+						</div>
 					</>
 					))}
 				</div>
 
 				{/* CLIP NAME */}
-				<div className="clipsWrapper" style={sortIndex !== 3 ? {'display':'none'} : {'display':'block'}}><h1>clip name</h1></div>
+				<div className="clipsWrapper" style={sortIndex !== 3 ? {'display':'none'} : {'display':'block','padding':'0 0 20px 0'}}>
+				{clipNameSorting.map((clip, i) => (
+					<>
+						<div className={classNames('non-sticky-diaz', clip.header === false ? 'none':'')}>
+							<h3 style={{'color':'#fff'}}>{clip.header}</h3>
+						</div>
+						<div className={classNames('clipMediaPool-large', clipNameSortingIndex === i ? 'active':'')} onClick={() => setClipNameSorting(i)}>
+							<div className={`clip-thumb ${clip.thumb}`}></div>
+							<div className="clip-description">
+								<div className="row-description">
+									<div className="title">{clip.title}</div>
+								</div>
+								<div className="row-description">
+									<div className="clip-color" style={{'backgroundColor':`${clip.clipcolor}`}}></div>
+									<div className="subtitle">
+										{clip.subtitle1}
+										<span>{clip.span1_1}</span>
+										<span>{clip.span1_2}</span>
+										<span>{clip.span1_3}</span>
+										<span>{clip.span1_4}</span>
+									</div>
+								</div>
+								<div className={classNames('row-description', clip.meta ? 'meta' : '')}>
+									<div className="subtitle">
+										{clip.subtitle2}
+										<span>{clip.span2_1}</span>
+										<span>{clip.span2_2}</span>
+										<span>{clip.span2_3}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</>
+				))}
+				</div>
 
 				{/* SCENE SHOT */}
 				<div ref={elementRef} className={classNames('clipsWrapper')} style={sortIndex !== 5 ? {'display':'none'} : {'display':'block','padding':'0 0 20px 0'}}>
