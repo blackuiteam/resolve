@@ -45,12 +45,13 @@ function Cut() {
 					style={inspector ? {'width':'calc(100% - 336px)', 'height':'100%', 'borderRight':'1px solid #000', 'float':'left'} : {'width':'100%', 'height':'100%'}}
 					sizes={[60, 40]}
 					minSize={[250, 414]}
-					expandToMin={true}
+					expandToMin={false}
 					gutterSize={2}
 					gutterAlign="start"
 					dragInterval={1}
 					direction="vertical"
-					cursor="row-resize">
+					cursor="row-resize"
+					snapOffset={false}>
 
 					{/* VIEWER CONTENT */}
 					<><ViewerContent nav={viewerToolsIndex}/></>

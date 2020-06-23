@@ -174,13 +174,9 @@ $scale: (
 		}
 
 		.non-sticky-diaz {
-			// @include size(calc(100% - 10px), 48px, flex);
 			@include size(calc(100% - 10px), 42px, flex);
 			align-items: center;
-			// position: relative;
-			// margin: 0;
 			margin-bottom: 6px;
-			padding: 0 0 0 35px;
 			position: sticky;
 			position: -webkit-sticky;
 			top: 0;
@@ -191,18 +187,25 @@ $scale: (
 
 			h3 {
 				@include font('bold', 13px, null, #929292);
-				@include position(14px, null, null, 22px);
+				@include position(14px, null, null, 0px);
 
 				span, img { display: inline-block; color: #fff; }
 
 				img { margin: 0 5px; }
+
+				&:before {
+					content:"";
+					@include size(20px, 43px);
+					@include position(-14px, null, null, -20px);
+					background-color: #28282D;
+					z-index: -1;
+				}
 			}
 
 			&:before {
 				content: "";
-				@include size(calc(100% - 30px), 1px, block);
-				@include position(null, null, 2px, 20px);
-				// @include position(null, null, 8px, 20px);
+				@include size(100%, 1px, block);
+				@include position(null, null, 2px, 0);
 				background-color: #3C3C3C;
 			}
 
@@ -211,6 +214,33 @@ $scale: (
 				@include size(10px, 40px, block);
 				@include position(0, -10px, null, null);
 				background-color: #28282D;
+			}
+
+			&.sticky2 {
+				top: 0;
+				bottom: -20px;
+
+				&:nth-of-type(5) { z-index: 2; };
+				&:nth-of-type(7) { z-index: 3; };
+				&:nth-of-type(9) { z-index: 6; };
+				&:nth-of-type(15) { z-index: 5; };
+				&:nth-of-type(17) { z-index: 4; };
+			}
+
+			&.stickyCamera {
+				top: 0;
+				bottom: -20px;
+
+				&.camerasticky1 { z-index: 3; }
+				&.camerasticky2 { z-index: 2; }
+			}
+
+			&.stickyClipName {
+				top: 0;
+				bottom: -20px;
+
+				&.clipnamesticky1 { z-index: 3; }
+				&.clipnamesticky2 { z-index: 2; }
 			}
 		}
 
@@ -267,12 +297,132 @@ $scale: (
 		}
 	}
 
+	.clipMediaPool-container {
+		@include size(100%, auto, table);
+		padding: 0 10px 10px 10px;
+
+		.large-clip {
+			@include size(calc(100% - 10px), 108px);
+			background-color: #212126;
+			border: 1px solid #000;
+			border-radius: 4px;
+			margin: 0 0 8px 0;
+
+			&.active-split {
+				@include size(calc(50% - 10px), 108px, inline-block);
+				float: left;
+				margin: 0 10px 8px 0;
+			}
+
+			&.active-split-three {
+				@include size(calc(34% - 22px), 108px, inline-block);
+				float: left;
+				margin: 0 10px 8px 0;
+			}
+
+			&:hover {
+				transition: .3s;
+				box-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
+			}
+
+			&.active {
+				box-shadow: 0px 0px 0px 2px rgba(230,75,61,1);
+			}
+
+			>.clip-thumb {
+				@include size(181px, 102px, block);
+				position: relative;
+				float: left;
+				border: 1px solid #000;
+				border-radius: 4px;
+				margin: 2px 0 2px 2px;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+
+				&:before {
+					content: "";
+					@include size(16px, 12px);
+					@include position(null, null, 5px, 3px);
+					@include bg('../images/media/thumbnail-view/thumb_audio@2x.png', no-repeat, center, 16px 12px);
+				}
+
+				@each $icon in $clipInterview {
+					&.#{$icon} {
+						background-image: url('../images/common/thumbnail/#{$icon}.png');
+					}
+				}
+			}
+
+			>.clip-description {
+				@include size(calc(100% - 190px), 102px, block);
+				float: left;
+				margin: 2px;
+				padding: 7px 0 0 0;
+
+				.row-description {
+					@include size(calc(100% - 20px), 31px, block);
+					border-bottom: 1px solid #3E3E42;
+
+					&:nth-child(2) { height: 32px; }
+					&:nth-child(3) {
+						&.meta {
+							@include bg('../images/common/note.png', no-repeat, 99% 8px, 10px 12px);
+						}
+					}
+
+					.title {
+						display: inline-block;
+						@include font(semibold, 16px, left, #fff);
+						margin: 1px 0 0 6px;
+					}
+
+					.subtitle {
+						@include font(regular, 12px, left, #929292 );
+						display: block;
+						margin: 7px 0 0 6px;
+						float: left;
+
+						span {
+							// margin: 0 5px 0 0;
+
+							// &:first-child { margin: 0 16px 0 16px; }
+							&:last-child { margin: 0; }
+						}
+					}
+
+					.clip-color {
+						@include size(9px);
+						display: block;
+						float: left;
+						margin: 12px 1px 0 8px;
+						border: 1px solid #000;
+						border-radius: 2px;
+					}
+
+					&:last-child {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+	}
+
 	.clipMediaPool-large {
 		@include size(calc(100% - 40px), 108px, block);
 		background-color: #212126;
 		border: 1px solid #000;
 		border-radius: 4px;
 		margin: 0 0 8px 20px;
+
+		&.Onecol {
+			@include size(calc(100% - 40px), 108px, block);
+		}
+
+		&.Twocols {
+			@include size(calc(50% - 30px), 108px, block);;
+			float: left;
+		}
 
 		&:hover {
 			transition: .3s;
@@ -338,9 +488,9 @@ $scale: (
 					float: left;
 
 					span {
-						margin: 0 15px 0 0;
+						// margin: 0 5px 0 0;
 
-						&:first-child { margin: 0 16px 0 16px; }
+						// &:first-child { margin: 0 16px 0 16px; }
 						&:last-child { margin: 0; }
 					}
 				}

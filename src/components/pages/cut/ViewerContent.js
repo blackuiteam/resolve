@@ -17,14 +17,16 @@ function ViewerContent(props) {
 		<div style={{'height':'100%', 'width':'100%'}}>
 			<Split
 				style={{'width':'100%', 'height':'100%', 'display':'flex'}}
-				sizes={[40, 60]}
-				minSize={[570, 825]}
+				sizes={[20, 80]}
+				minSize={[566, 825]}
 				expandToMin={true}
 				gutterSize={1}
 				gutterAlign="start"
 				dragInterval={1}
 				direction="horizontal"
-				cursor="col-resize">
+				cursor="col-resize"
+				snapOffset={false}
+				>
 
 				{/* VIEWER TOOLS */}
 				<div>
