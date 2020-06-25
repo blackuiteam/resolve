@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/resolve/static/css/main.2c39e953.chunk.css",
-    "main.js": "/resolve/static/js/main.ed7ddaeb.chunk.js",
-    "main.js.map": "/resolve/static/js/main.ed7ddaeb.chunk.js.map",
+    "main.css": "/resolve/static/css/main.7a677d64.chunk.css",
+    "main.js": "/resolve/static/js/main.10eedb08.chunk.js",
+    "main.js.map": "/resolve/static/js/main.10eedb08.chunk.js.map",
     "runtime-main.js": "/resolve/static/js/runtime-main.b9b3cddd.js",
     "runtime-main.js.map": "/resolve/static/js/runtime-main.b9b3cddd.js.map",
-    "static/js/2.19b1a5d3.chunk.js": "/resolve/static/js/2.19b1a5d3.chunk.js",
-    "static/js/2.19b1a5d3.chunk.js.map": "/resolve/static/js/2.19b1a5d3.chunk.js.map",
+    "static/js/2.f74f10f2.chunk.js": "/resolve/static/js/2.f74f10f2.chunk.js",
+    "static/js/2.f74f10f2.chunk.js.map": "/resolve/static/js/2.f74f10f2.chunk.js.map",
     "index.html": "/resolve/index.html",
-    "precache-manifest.116181cf0e35782c011c3232b5231ec1.js": "/resolve/precache-manifest.116181cf0e35782c011c3232b5231ec1.js",
+    "precache-manifest.c62c5dfc671e69258d6aec29829e0bb0.js": "/resolve/precache-manifest.c62c5dfc671e69258d6aec29829e0bb0.js",
     "service-worker.js": "/resolve/service-worker.js",
-    "static/css/main.2c39e953.chunk.css.map": "/resolve/static/css/main.2c39e953.chunk.css.map",
-    "static/js/2.19b1a5d3.chunk.js.LICENSE.txt": "/resolve/static/js/2.19b1a5d3.chunk.js.LICENSE.txt",
+    "static/css/main.7a677d64.chunk.css.map": "/resolve/static/css/main.7a677d64.chunk.css.map",
+    "static/js/2.f74f10f2.chunk.js.LICENSE.txt": "/resolve/static/js/2.f74f10f2.chunk.js.LICENSE.txt",
+    "static/media/main.css": "/resolve/static/media/shape-7.0cfc9e5c.png",
     "static/media/attributes.png": "/resolve/static/media/attributes.f089da84.png",
     "static/media/audio-tab.png": "/resolve/static/media/audio-tab.fbcc1576.png",
     "static/media/audio-transition.png": "/resolve/static/media/audio-transition.da573640.png",
-    "static/media/main.css": "/resolve/static/media/viewer_image.0d1b6dfd.png",
     "static/media/background.png": "/resolve/static/media/background.76688b97.png",
     "static/media/bmd-camera-raw-02.png": "/resolve/static/media/bmd-camera-raw-02.d9e33a3b.png",
     "static/media/bmd-camera-raw-03.png": "/resolve/static/media/bmd-camera-raw-03.6cd5cf7a.png",
@@ -60,8 +60,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b9b3cddd.js",
-    "static/js/2.19b1a5d3.chunk.js",
-    "static/css/main.2c39e953.chunk.css",
-    "static/js/main.ed7ddaeb.chunk.js"
+    "static/js/2.f74f10f2.chunk.js",
+    "static/css/main.7a677d64.chunk.css",
+    "static/js/main.10eedb08.chunk.js"
   ]
 }
