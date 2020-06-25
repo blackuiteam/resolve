@@ -55,7 +55,7 @@ $scale: (
 
 .ViewerCut {
 	@include size(100%, calc(100% - 74px));
-	background-image: url('../images/common/viewer_image.png');
+	background-image: url('../images/common/thumbnail/01-video-preview.png');
 	background-size: contain;
 	background-color: #1A1A1A;
 	background-repeat: no-repeat;
@@ -189,6 +189,8 @@ $scale: (
 				@include font('bold', 13px, null, #929292);
 				@include position(14px, null, null, 0px);
 
+				&.with-color { left: 8px; }
+
 				span, img { display: inline-block; color: #fff; }
 
 				img { margin: 0 5px; }
@@ -200,6 +202,15 @@ $scale: (
 					background-color: #28282D;
 					z-index: -1;
 				}
+			}
+
+			.clip-color {
+				@include size(5px, 13px);
+				margin: 4px 1px 0 0;
+				display: block;
+				float: left;
+				border: 1px solid #000;
+				border-radius: 2px;
 			}
 
 			&:before {
@@ -241,6 +252,33 @@ $scale: (
 
 				&.clipnamesticky1 { z-index: 3; }
 				&.clipnamesticky2 { z-index: 2; }
+			}
+
+			&.stickySceneShot {
+				top: 0;
+				bottom: -20px;
+
+				&.scenesticky1 { z-index: 3; }
+				&.scenesticky2 { z-index: 2; }
+			}
+
+			&.stickyClipColor {
+				top: 0;
+				bottom: -20px;
+
+				&.clipColorsticky1 { z-index: 5; }
+				&.clipColorsticky2 { z-index: 4; }
+				&.clipColorsticky3 { z-index: 3; }
+				&.clipColorsticky4 { z-index: 2; }
+			}
+
+			&.stickyKeyWords {
+				top: 0;
+				bottom: -20px;
+
+				&.keyWordSticky1 { z-index: 5; }
+				&.keyWordSticky2 { z-index: 4; }
+				&.keyWordSticky3 { z-index: 3; }
 			}
 		}
 
@@ -302,20 +340,23 @@ $scale: (
 		padding: 0 10px 10px 10px;
 
 		.large-clip {
-			@include size(calc(100% - 10px), 108px);
+			// @include size(calc(100% - 10px), 108px);
+			@include size(566px, 108px);
 			background-color: #212126;
 			border: 1px solid #000;
 			border-radius: 4px;
 			margin: 0 0 8px 0;
 
 			&.active-split {
-				@include size(calc(50% - 10px), 108px, inline-block);
+				// @include size(calc(50% - 10px), 108px, inline-block);
+				@include size(566px, 108px, inline-block);
 				float: left;
 				margin: 0 10px 8px 0;
 			}
 
 			&.active-split-three {
-				@include size(calc(34% - 22px), 108px, inline-block);
+				// @include size(calc(34% - 22px), 108px, inline-block);
+				@include size(566px, 108px, inline-block);
 				float: left;
 				margin: 0 10px 8px 0;
 			}
@@ -378,7 +419,7 @@ $scale: (
 					}
 
 					.subtitle {
-						@include font(regular, 12px, left, #929292 );
+						@include font(regular, 11px, left, #929292 );
 						display: block;
 						margin: 7px 0 0 6px;
 						float: left;
@@ -398,6 +439,11 @@ $scale: (
 						margin: 12px 1px 0 8px;
 						border: 1px solid #000;
 						border-radius: 2px;
+
+						&.tiny {
+							@include size(5px, 13px);
+							margin: 6px 1px 0 8px;
+						}
 					}
 
 					&:last-child {

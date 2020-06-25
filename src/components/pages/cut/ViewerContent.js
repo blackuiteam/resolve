@@ -17,8 +17,8 @@ function ViewerContent(props) {
 		<div style={{'height':'100%', 'width':'100%'}}>
 			<Split
 				style={{'width':'100%', 'height':'100%', 'display':'flex'}}
-				sizes={[20, 80]}
-				minSize={[566, 825]}
+				sizes={[23.5, 76.5]}
+				minSize={[601, 800]}
 				expandToMin={true}
 				gutterSize={1}
 				gutterAlign="start"
