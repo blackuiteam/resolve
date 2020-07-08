@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b7c60d3b7c3c1ad3bfcc0fcd5a710a3f",
+    "revision": "3b1b27aad85a701cb40aafa049c73acb",
     "url": "/resolve/index.html"
   },
   {
-    "revision": "1ac3d5196eaf21ebee47",
-    "url": "/resolve/static/css/main.7a677d64.chunk.css"
+    "revision": "a43de7099d8f2aa970d4",
+    "url": "/resolve/static/css/main.efa3ee30.chunk.css"
   },
   {
-    "revision": "3607826663762bab7e57",
-    "url": "/resolve/static/js/2.f74f10f2.chunk.js"
+    "revision": "31c2c83116e19e12f0e1",
+    "url": "/resolve/static/js/2.1fa4f50e.chunk.js"
   },
   {
     "revision": "5e9b6f5c16b720e8a86875f97734673e",
-    "url": "/resolve/static/js/2.f74f10f2.chunk.js.LICENSE.txt"
+    "url": "/resolve/static/js/2.1fa4f50e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1ac3d5196eaf21ebee47",
-    "url": "/resolve/static/js/main.10eedb08.chunk.js"
+    "revision": "a43de7099d8f2aa970d4",
+    "url": "/resolve/static/js/main.a14f5666.chunk.js"
   },
   {
     "revision": "fafd1931d31787f8853f",
@@ -64,120 +64,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/resolve/static/media/bmd-camera-raw.37652355.png"
   },
   {
-    "revision": "17f0bb4aab5cc1ca6da38957d6832478",
-    "url": "/resolve/static/media/clip-0.17f0bb4a.png"
-  },
-  {
     "revision": "8135e384f983b007da7e6628a60053d4",
     "url": "/resolve/static/media/clip-01-bg.8135e384.png"
   },
   {
-    "revision": "9e5d6e46cdde51911b5182a03817e949",
-    "url": "/resolve/static/media/clip-1.9e5d6e46.png"
-  },
-  {
-    "revision": "e6b7b4d76c2f1f90e9b3a94bf36704a7",
-    "url": "/resolve/static/media/clip-10.e6b7b4d7.png"
-  },
-  {
-    "revision": "68416f4aa37bf8588dd006ece59f71d3",
-    "url": "/resolve/static/media/clip-11.68416f4a.png"
-  },
-  {
-    "revision": "f88d1030f125967e326c940ff3b9003a",
-    "url": "/resolve/static/media/clip-12.f88d1030.png"
-  },
-  {
-    "revision": "4d32bbb5feb89507e57c195aac8eea62",
-    "url": "/resolve/static/media/clip-13.4d32bbb5.png"
-  },
-  {
-    "revision": "e39e0d1052c00f94b855fe2e62926bc0",
-    "url": "/resolve/static/media/clip-14.e39e0d10.png"
-  },
-  {
-    "revision": "5c60e65b5dd735caced2f19530385884",
-    "url": "/resolve/static/media/clip-15.5c60e65b.png"
-  },
-  {
-    "revision": "d5bfc31c7f614747be82a092c1d15eed",
-    "url": "/resolve/static/media/clip-16.d5bfc31c.png"
-  },
-  {
-    "revision": "dbfcc1134ac559c3d7abffdd073405d9",
-    "url": "/resolve/static/media/clip-17.dbfcc113.png"
-  },
-  {
-    "revision": "6e9d43a17d8a90b5064261f990e842aa",
-    "url": "/resolve/static/media/clip-18.6e9d43a1.png"
-  },
-  {
-    "revision": "42d37aa377b159c9fa0548ead63c525d",
-    "url": "/resolve/static/media/clip-19.42d37aa3.png"
-  },
-  {
-    "revision": "ad370d78eb90b767dcbe9f2e8e1ea241",
-    "url": "/resolve/static/media/clip-2.ad370d78.png"
-  },
-  {
-    "revision": "9e5d6e46cdde51911b5182a03817e949",
-    "url": "/resolve/static/media/clip-20.9e5d6e46.png"
-  },
-  {
-    "revision": "ad370d78eb90b767dcbe9f2e8e1ea241",
-    "url": "/resolve/static/media/clip-21.ad370d78.png"
-  },
-  {
-    "revision": "299031ac7da63df2137b76e5a9f4d36a",
-    "url": "/resolve/static/media/clip-22.299031ac.png"
-  },
-  {
-    "revision": "7ed360253c64e5af4603e47638fb4723",
-    "url": "/resolve/static/media/clip-23.7ed36025.png"
-  },
-  {
-    "revision": "17f0bb4aab5cc1ca6da38957d6832478",
-    "url": "/resolve/static/media/clip-24.17f0bb4a.png"
-  },
-  {
-    "revision": "c594ec93c0386a55a17b1faf0dbcd04d",
-    "url": "/resolve/static/media/clip-25.c594ec93.png"
-  },
-  {
-    "revision": "455750d14544da8d28c5d19d9e2a5b83",
-    "url": "/resolve/static/media/clip-3.455750d1.png"
-  },
-  {
-    "revision": "299031ac7da63df2137b76e5a9f4d36a",
-    "url": "/resolve/static/media/clip-4.299031ac.png"
-  },
-  {
-    "revision": "c594ec93c0386a55a17b1faf0dbcd04d",
-    "url": "/resolve/static/media/clip-5.c594ec93.png"
-  },
-  {
-    "revision": "c594ec93c0386a55a17b1faf0dbcd04d",
-    "url": "/resolve/static/media/clip-6.c594ec93.png"
-  },
-  {
-    "revision": "7ed360253c64e5af4603e47638fb4723",
-    "url": "/resolve/static/media/clip-7.7ed36025.png"
-  },
-  {
-    "revision": "e5f65c80dd4e7c4b00e76cf3d8651511",
-    "url": "/resolve/static/media/clip-8.e5f65c80.png"
-  },
-  {
-    "revision": "01e55d60345d5d252c88dc4f71eaeeee",
-    "url": "/resolve/static/media/clip-9.01e55d60.png"
-  },
-  {
     "revision": "4e2cf2b1656a6b38ba4b0b0cf6ac1dfd",
     "url": "/resolve/static/media/clip.4e2cf2b1.png"
-  },
-  {
-    "revision": "b0180c01321d6b02e269d84c756f7d58",
-    "url": "/resolve/static/media/clip.b0180c01.png"
   },
   {
     "revision": "c778bcd38b5775758f347d6306e0cebb",
