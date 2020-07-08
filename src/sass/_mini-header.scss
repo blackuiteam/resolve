@@ -108,7 +108,7 @@ $iconsSort: (
 
 	&.two-columns {
 		display: grid;
-		grid-template-columns: repeat(2, calc(100% / 2));
+		grid-template-columns: 170px calc(100% - 170px);
 		align-items: center;
 		font-family: 'opensans semibold';
 
