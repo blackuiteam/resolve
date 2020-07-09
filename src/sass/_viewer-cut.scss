@@ -352,7 +352,7 @@ $scale: (
 		padding: 0 10px 10px 0px;
 
 		.large-clip {
-			@include size(calc(100% - 26px), 108px, block);
+			@include size(calc(100% - 16px), 108px, block);
 			float: left;
 			position: relative;
 			background-color: #212126;
@@ -360,11 +360,11 @@ $scale: (
 			border-left: none;
 			margin: -1px 10px 0 0;
 			overflow: hidden;
-			transition: all 0.2s ease-in;
+			// transition: all 0.2s ease-in;
 
 			&:before, &:after {
 				content: "";
-				@include size(40%, 1px);
+				@include size(50%, 1px);
 				background-color: #3e3e42;
 			}
 
@@ -377,7 +377,7 @@ $scale: (
 			}
 
 			&.active-split {
-				@include size(calc((100% / 2) - 4px), 108px, inline-block);
+				@include size(calc((100% / 2) - 8px), 108px, inline-block);
 				float: left;
 				margin: -1px 0 0 0;
 
@@ -387,17 +387,11 @@ $scale: (
 				}
 			}
 
-			// &.active-split-three {
-			// 	@include size(calc((100% / 4) - 10px), 108px, inline-block);
-			// 	float: left;
-			// 	margin: 0 10px 8px 0;
-			// }
-
-			// &.active-split-four {
-			// 	@include size(calc((100% / 5) - 10px), 108px, inline-block);
-			// 	float: left;
-			// 	margin: 0 10px 8px 0;
-			// }
+			&.active-split-three {
+				@include size(calc((100% / 3) - 5px), 108px, inline-block);
+				float: left;
+				margin: -1px 0 0 0;
+			}
 
 			&:hover {
 				transition: 0.3s;
@@ -459,10 +453,25 @@ $scale: (
 
 					&:nth-child(1) {
 						@include font(semibold, 16px, left, #fff);
+						display: grid;
+						grid-template-rows: auto;
+						grid-template-columns: calc(100% - 15px) 15px;
 						padding: 10px 0 0 0;
 
-						&.good-take {
-							@include bg("../images/common/goodtake.png", no-repeat, 100% 12px, 15px 15px);
+						div {
+							white-space: nowrap;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							padding: 0 10px 0 0;
+
+							&:nth-child(1) {
+								position: relative;
+								color: #fff;
+							}
+
+							&.good-take {
+								@include bg("../images/common/goodtake.png", no-repeat, center, 15px 15px);
+							}
 						}
 					}
 

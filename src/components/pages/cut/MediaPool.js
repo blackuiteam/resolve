@@ -153,7 +153,7 @@ function MediaPool() {
 		}
 	}
 
-	const [sortIndex, setSort] = useState(8);
+	const [sortIndex, setSort] = useState(0);
 	const [sortOrder, setOrder] = useState(0);
 
 	const [open, setOpen] = useState(false);
@@ -385,26 +385,26 @@ function MediaPool() {
 	}
 
 	const [timeCodeIndex, setTimeCode] = useState(0);
-	const [cameraSortingIndex, setCameraSorting] = useState(0);
-	const [dataTimeSortingIndex, setDateTimeSorting] = useState(0);
-	const [clipNameSortingIndex, setClipNameSorting] = useState(0);
-	const [sceneShotSortingIndex, setSceneShotSorting] = useState(0);
-	const [clipColorSortingIndex, setClipColorSorting] = useState(0);
+	const [cameraSortingIndex, setCameraSorting] = useState(1);
+	const [dataTimeSortingIndex, setDateTimeSorting] = useState(5);
+	const [clipNameSortingIndex, setClipNameSorting] = useState(1);
+	const [sceneShotSortingIndex, setSceneShotSorting] = useState(5);
+	const [clipColorSortingIndex, setClipColorSorting] = useState(1);
 	const [keywordsSortingIndex, setKeywordsSorting] = useState(0);
 
 	const query = {
 		"One-Column": {
-			minWidth: 420,
-			maxWidth: 778,
+			minWidth: 425,
+			maxWidth: 800,
 		},
 		"active-split": {
-			minWidth: 779,
-			// maxWidth: 1248,
+			minWidth: 801,
+			maxWidth: 1198,
 		},
-		// "active-split-three": {
-		// 	minWidth: 1249,
-		// 	maxWidth: 1657,
-		// },
+		"active-split-three": {
+			minWidth: 1199,
+			// maxWidth: 1657,
+		},
 		// "active-split-four": {
 		// 	minWidth: 1658,
 		// },
@@ -1289,8 +1289,9 @@ function MediaPool() {
 											</div>
 											<div className="clip-description">
 												{/* ROW 1 */}
-												<div className={classNames("row-description", clip.goodtake ? "good-take" : "")}>
-													{clip.timecode} &nbsp; {clip.date}
+												<div className={classNames("row-description")}>
+													<div role="text" aria-label={clip.timecode}>{clip.timecode} &nbsp; {clip.date}</div>
+													<div className={clip.goodtake ? "good-take" : ""}></div>
 												</div>
 
 												{/* ROW 2 */}
@@ -1344,8 +1345,9 @@ function MediaPool() {
 											{/* DESCRIPTION */}
 											<div className="clip-description">
 												{/* ROW 1 */}
-												<div className={classNames("row-description", clip.goodtake ? "good-take" : "")}>
-													Camera {clip.cam}
+												<div className={classNames("row-description")}>
+													<div>Camera {clip.cam}</div>
+													<div className={clip.goodtake ? "good-take" : ""}></div>
 												</div>
 
 												{/* ROW 2 */}
@@ -1398,8 +1400,9 @@ function MediaPool() {
 											{/* DESCRIPTION */}
 											<div className="clip-description">
 												{/* ROW 1 */}
-												<div className={classNames("row-description", clip.goodtake ? "good-take" : "")}>
-													{clip.date} &nbsp; {clip.timecode}
+												<div className={classNames("row-description")}>
+													<div>{clip.date} &nbsp; {clip.timecode}</div>
+													<div className={clip.goodtake ? "good-take" : ""}></div>
 												</div>
 
 												{/* ROW 2 */}
@@ -1452,8 +1455,9 @@ function MediaPool() {
 											{/* DESCRIPTION */}
 											<div className="clip-description">
 												{/* ROW 1 */}
-												<div className={classNames("row-description", clip.goodtake ? "good-take" : "")}>
-													{clip.name}
+												<div className={classNames("row-description")}>
+													<div>{clip.name}</div>
+													<div className={clip.goodtake ? "good-take" : ""}></div>
 												</div>
 
 												{/* ROW 2 */}
@@ -1507,8 +1511,9 @@ function MediaPool() {
 											<div className="clip-description">
 
 												{/* ROW 1 */}
-												<div className={classNames("row-description", clip.goodtake ? "good-take" : "")}>
-													Scene {clip.scene}, Shot {clip.shot}, Take {clip.take}
+												<div className={classNames("row-description")}>
+													<div>Scene {clip.scene}, Shot {clip.shot}, Take {clip.take}</div>
+													<div className={clip.goodtake ? "good-take" : ""}></div>
 												</div>
 
 												{/* ROW 2 */}
@@ -1563,8 +1568,9 @@ function MediaPool() {
 											<div className="clip-description">
 
 												{/* ROW 1 */}
-												<div className={classNames("row-description", clip.goodtake ? "good-take" : "")}>
-													{clip.name}
+												<div className={classNames("row-description")}>
+													<div>{clip.name}</div>
+													<div className={clip.goodtake ? "good-take" : ""}></div>
 												</div>
 
 												{/* ROW 2 */}
@@ -1607,7 +1613,7 @@ function MediaPool() {
 				</div>
 
 				{/* KEYWORDS */}
-				<div className={classNames("clipsWrapper", sortIndex !== 8 ? "none" : "")}>
+				<div className={classNames("clipsWrapper", sortIndex !== 8 ? "none" : "none")}>
 					<ContainerQuery query={query}>
 						{(params) => (
 							<div className="clipMediaPool-container">
